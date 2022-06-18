@@ -1,2 +1,0 @@
-!function(){var o=document.forms[0];console.log(o);var e=o.delay;console.log(e);var l=o.step;console.log(l);var n=o.amount;console.log(n);var c=o.elements[3];console.log(c),e.value=3e3,c.addEventListener("click",(function(){var o=0,e=setInterval((function(){o++,console.log("setTimeout delay",o),o>9&&clearInterval(e)}),l);console.log("counter",e)}))}();
-//# sourceMappingURL=03-promises.68a2d6fb.js.map
