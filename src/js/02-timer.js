@@ -45,10 +45,10 @@ btnStart.addEventListener("click", () => {
 		if (planTime > realTime) {
 			btnStart.setAttribute('disabled', true);
 
-			second = new Date(diffOn).getUTCSeconds();
-			minute = new Date(diffOn).getUTCMinutes();
-			hour = new Date(diffOn).getUTCHours();
-			day = new Date(diffOn).getUTCDate() - 1;
+			let second = new Date(diffOn).getUTCSeconds();
+			let minute = new Date(diffOn).getUTCMinutes();
+			let hour = new Date(diffOn).getUTCHours();
+			let day = new Date(diffOn).getUTCDate() - 1;
 
 			digitVal[Days].textContent = (day < 10) ? '0' + day : day;
 			digitVal[Hours].textContent = (hour < 10) ? '0' + hour : hour;
