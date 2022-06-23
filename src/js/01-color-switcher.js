@@ -25,6 +25,7 @@ function setColor() {
   return hex;
 	
 }
+
 function getRandomHex() {
   return Math.round(Math.random() * 256)
     .toString(16)
