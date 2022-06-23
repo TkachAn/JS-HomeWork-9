@@ -16,7 +16,7 @@ let diffOn = 0;
 const inputData = document.querySelector('#datetime-picker');
 const digitVal = document.querySelectorAll('[class="value"]');
 const btnStart = document.querySelector('button');
-
+inputData.value = new Date();
 btnStart.setAttribute('disabled', true);
 inputData.addEventListener("input", () => {
 	

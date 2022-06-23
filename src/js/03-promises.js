@@ -15,37 +15,38 @@ form.addEventListener("submit", (event) => {
 	setTimeout(() => {
 		// return new Promise((resolve, reject) => {
 		// 	resolve({ av, sv });
-			createPromise(av, sv)
-			.then(`✅ Fulfilled promise ${av} in ${sv}ms`)
+			createPromise(dv, av, sv)
+			.then(`✅ Fulfilled promise ${dv}  ${av} in ${sv}ms`)
 			
-			.catch(`❌ Rejected promise ${av} in ${sv}ms`)
+			.catch(`❌ Rejected promise ${dv}  ${av} in ${sv}ms`)
 			;
 		//})
 	}, dv);
 });//.
-const createPromise = (position,delay )=> {
+const createPromise = (delay, position,stepDelay )=> {
   return new Promise((resolve, reject) => {
-    console.log(`delay ${delay}`);
+    console.log(`delay ${stepDelay}`);
 	let cnt = 1;
 		// const av = amount.value;
 		// const sv = step.value;
+	  Notify.success(`First delay ${delay}`);
 		let counter = setInterval(() => {
 			const shouldResolve = Math.random() > 0.3;
 			if (shouldResolve) {
-				resolve(`Fulfilled promise ${position} in ${delay}`);
-				console.log("resolve step:", position, " ms:", cnt * delay);
-				Notify.success(`Fulfilled promise ${position} in ${delay}`);	// Fulfill
+				resolve(`Fulfilled promise ${position} in ${stepDelay}`);
+				console.log("resolve step:", cnt, " ms:", cnt * stepDelay+Number(delay));
+				Notify.success(`Fulfilled promise ${cnt} in ${cnt * stepDelay+Number(delay)}`);	// Fulfill
 			} else {
-				reject(`rejected promise ${position} in ${delay}`);
-				console.log("reject step:", position, " ms:", cnt * delay);
-				Notify.failure(`rejected promise ${position} in ${delay}`);	// Reject
+				reject(`rejected promise ${position} in ${stepDelay}`);
+				console.log("reject step:", cnt, " ms:", cnt * stepDelay+Number(delay));
+				Notify.failure(`rejected promise ${cnt} in ${cnt * stepDelay+Number(delay)}`);	// Reject
 			}
 			// console.log("step:", cnt," ms:", cnt*delay);
 			if (cnt > position-1) {
 				clearInterval(counter);
 			}
 			cnt++;
-		},delay)
+		},stepDelay)
   });
 	
 };

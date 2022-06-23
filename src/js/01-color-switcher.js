@@ -6,12 +6,16 @@ startBtn.addEventListener("click", () => {
 	setColor();
 	if(timer === null){
 		timer = setInterval(setColor, 1000);
-	}
+	};
+	startBtn.setAttribute('disabled', true);
+	stopBtn.removeAttribute('disabled');
 });
 
 stopBtn.addEventListener("click", () => {
   clearInterval(timer);
 	console.log(`Interval with id ${timer} has stopped!`); timer = null;
+	startBtn.removeAttribute('disabled');
+	stopBtn.setAttribute('disabled', true);
 });
 
 function setColor() {
